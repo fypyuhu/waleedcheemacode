@@ -24,6 +24,7 @@
 
 		{!! HTML::style('http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800') !!}
 		{!! HTML::style('http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic') !!}
+    <link href="//www.fuelcdn.com/fuelux/3.6.3/css/fuelux.min.css" rel="stylesheet">
 
         @yield('head')
 
@@ -89,6 +90,12 @@
                     <li {!! classActivePath('medias') !!}>
                         <a href="{!! route('medias') !!}"><span class="fa fa-fw fa-file-image-o"></span> {{ trans('back/admin.medias') }}</a>
                     </li>
+                    <li {!! classActivePath('audio') !!}>
+                        <a href="#" data-toggle="collapse" data-target="#audiomenu"><span class="glyphicon glyphicon-music"></span> Audio <span class="fa fa-fw fa-caret-down"></span></a>
+                            <ul id="audiomenu" class="collapse">
+                                <li><a href="{!! route('admin.audio.index') !!}">See all</a></li>
+                                <li><a href="{!! url('audio/create') !!}">Add</a></li>
+                            </ul></li>
                     <li {!! classActiveSegment(1, 'blog') !!}>
                         <a href="#" data-toggle="collapse" data-target="#articlemenu"><span class="fa fa-fw fa-pencil"></span> {{ trans('back/admin.posts') }} <span class="fa fa-fw fa-caret-down"></a>
                         <ul id="articlemenu" class="collapse">
@@ -120,7 +127,7 @@
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
     	{!! HTML::script('js/plugins.js') !!}
     	{!! HTML::script('js/main.js') !!}
-
+<script src="//www.fuelcdn.com/fuelux/3.6.3/js/fuelux.min.js"></script>
         @yield('scripts')
 
   </body>

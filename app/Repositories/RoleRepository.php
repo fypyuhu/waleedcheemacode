@@ -37,7 +37,9 @@ class RoleRepository {
 	 *
 	 * @param  array  $inputs
 	 * @return void
+	 ;
 	 */
+
 	public function update($inputs)
 	{
 		foreach ($inputs as $key => $value)
@@ -58,9 +60,11 @@ class RoleRepository {
 	 */
 	public function getAllSelect()
 	{
+		$type = ['0','1','2'];
+
 		$select = $this->all()->lists('title', 'id');
 
-		return compact('select');
+		return compact('select','type');
 	}
 
 }

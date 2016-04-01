@@ -12,6 +12,11 @@ class HomeController extends Controller
 	 *
 	 * @return Response
 	 */
+    public function about(){
+        return view('front.about');
+        
+        
+    }
 	public function index()
 	{
 		return view('front.index');

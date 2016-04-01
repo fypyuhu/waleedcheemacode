@@ -28,7 +28,7 @@ return [
 	|
 	*/
 
-	'host' => 'smtp.free.fr',
+	'host' => 'mail.al-khidmatfoundation.org',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ return [
 	|
 	*/
 
-	'port' => 25,
+	'port' => 26,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return [
 	|
 	*/
 
-	'from' => ['address' => 'moi@free.fr', 'name' => 'Administrateur'],
+	'from' => ['address' => 'recovery@authenticate.file.alkhidmat.org', 'name' => 'Confirmation'],
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return [
 	|
 	*/
 
-	'username' => null,
+	'username' => 'recovery@authenticate.file.alkhidmat.org',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return [
 	|
 	*/
 
-	'password' => null,
+	'password' => '786!@#QWEasd',
 
 	/*
 	|--------------------------------------------------------------------------

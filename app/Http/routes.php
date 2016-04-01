@@ -1,10 +1,38 @@
 <?php
 
+//API
+
+
+Route::resource('audio','AudioController');
+Route::get('admin/audio', [
+	'uses' => 'AudioController@adminIndex', 
+	'as' => 'admin.audio.index'
+        
+]);
+Route::resource('video','VideoController');
+Route::get('admin/video', [
+	'uses' => 'VideoController@adminIndex', 
+	'as' => 'admin.video.index'
+]);
+Route::resource('gallery','GalleryController');
+Route::get('admin/gallery', [
+	'uses' => 'GalleryController@adminIndex', 
+	'as' => 'admin.gallery.index'
+]);
+
+
 // Home
+Route::get('about', [
+	'uses' => 'HomeController@about', 
+	'as' => 'about'
+]);
+
 Route::get('/', [
 	'uses' => 'HomeController@index', 
 	'as' => 'home'
 ]);
+
+
 Route::get('language', 'HomeController@language');
 
 

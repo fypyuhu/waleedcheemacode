@@ -31,10 +31,8 @@ class UserController extends Controller {
 	 * @param  App\Repositories\RoleRepository $role_gestion
 	 * @return void
 	 */
-	public function __construct(
-		UserRepository $user_gestion,
-		RoleRepository $role_gestion)
-	{
+	public function __construct(UserRepository $user_gestion, RoleRepository $role_gestion){
+
 		$this->user_gestion = $user_gestion;
 		$this->role_gestion = $role_gestion;
 
@@ -95,6 +93,7 @@ class UserController extends Controller {
 	 */
 	public function create()
 	{
+
 		return view('back.users.create', $this->role_gestion->getAllSelect());
 	}
 
@@ -105,8 +104,7 @@ class UserController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(
-		UserCreateRequest $request)
+	public function store(UserCreateRequest $request)
 	{
 		$this->user_gestion->store($request->all());
 

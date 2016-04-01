@@ -1,138 +1,270 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!doctype html>
+<html lang="en-US">
+	
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+ 		<link rel="shortcut icon" href="{!!URL::to('/')!!}/images/favicon.png"/>
+		<title>Home | WeMusic - Music Band Event</title>
 
-	<head>
+		<link rel='stylesheet' href='{!!URL::to('/')!!}/css/bootstrap.min.css' type='text/css' media='all'/>
+		<link rel='stylesheet' href='{!!URL::to('/')!!}/css/settings.css' type='text/css' media='all'/>
+		<link rel='stylesheet' href='{!!URL::to('/')!!}/css/widget-calendar-full.css' type='text/css' media='all'/>
+		<link rel='stylesheet' href='{!!URL::to('/')!!}/css/style.css' type='text/css' media='all'/>
+		<link rel='stylesheet' href='{!!URL::to('/')!!}/css/commerce.css' type='text/css' media='all'/>
+		<link rel='stylesheet' href='{!!URL::to('/')!!}/css/font-awesome.min.css' type='text/css' media='all'/>
+		<link rel='stylesheet' href='{!!URL::to('/')!!}/css/jquery.mb.YTPlayer.css' type='text/css' media='all'/>
+		<link rel='stylesheet' href='{!!URL::to('/')!!}/css/owl.carousel.css' type='text/css' media='all'/>
+		<link rel='stylesheet' href='{!!URL::to('/')!!}/css/owl.theme.css' type='text/css' media='all'/>
+		<link rel='stylesheet' href='{!!URL::to('/')!!}/css/nivo-lightbox.css' type='text/css' media='all'/>
+		<link rel='stylesheet' href='{!!URL::to('/')!!}/css/nivo-default.css' type='text/css' media='all'/>
+		<link rel='stylesheet' href='{!!URL::to('/')!!}/css/mediaelementplayer.css' type='text/css' media='all'/>
+		<link rel='stylesheet' href='{!!URL::to('/')!!}/css/layout.css' type='text/css' media='all'/>
 
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>{{ trans('front/site.title') }}</title>
-		<meta name="description" content="">	
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Dosis:100,300,400,700,900,300italic,400italic,700italic,900italic' type='text/css' media='all'/>
 
-		@yield('head')
-
-		{!! HTML::style('css/main_front.css') !!}
-
-		<!--[if (lt IE 9) & (!IEMobile)]>
-			{!! HTML::script('js/vendor/respond.min.js') !!}
-		<![endif]-->
-		<!--[if lt IE 9]>
-			{!! HTML::style('https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js') !!}
-			{!! HTML::style('https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js') !!}
-		<![endif]-->
-
-		{!! HTML::style('http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800') !!}
-		{!! HTML::style('http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic') !!}
-
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
 	</head>
-
-  <body>
-
-	<!--[if lt IE 8]>
-		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-	<![endif]-->
-
-	<header role="banner">
-
-		<div class="brand">{{ trans('front/site.title') }}</div>
-		<div class="address-bar">{{ trans('front/site.sub-title') }}</div>
-		<div id="flags" class="text-center"></div>
-		<nav class="navbar navbar-default" role="navigation">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="index.html">{{ trans('front/site.title') }}</a>
+	<body class="page-menu-transparent">
+		<!--preloader-->
+        
+    <!--    <div id="loading">
+			<div id="loading-center">
+				<div id="loading-center-absolute">
+					<div class="object"></div>
+					<div class="object"></div>
+                                        <div class="object"></div>
+                                        <div class="object"></div>
+                                        <div class="object"></div>
+                                        <div class="object"></div>
+					<div class="object"></div>
+					<div class="object"></div>
+                                        <div class="object"></div>
+                                        <div class="object"></div>
+                                        
 				</div>
-				<div class="collapse navbar-collapse">
-					<ul class="nav navbar-nav">
-						<li {!! classActivePath('/') !!}>
-							{!! link_to('/', trans('front/site.home')) !!}
-						</li>
-						@if(session('statut') == 'visitor' || session('statut') == 'user')
-							<li {!! classActivePath('contact/create') !!}>
-								{!! link_to('contact/create', trans('front/site.contact')) !!}
-							</li>
-						@endif
-						<li {!! classActiveSegment(1, ['articles', 'blog']) !!}>
-							{!! link_to('articles', trans('front/site.blog')) !!}
-						</li>
-						@if(Request::is('auth/register'))
-							<li class="active">
-								{!! link_to('auth/register', trans('front/site.register')) !!}
-							</li>
-						@elseif(Request::is('password/email'))
-							<li class="active">
-								{!! link_to('password/email', trans('front/site.forget-password')) !!}
-							</li>
-						@else
-							@if(session('statut') == 'visitor')
-								<li {!! classActivePath('auth/login') !!}>
-									{!! link_to('auth/login', trans('front/site.connection')) !!}
-								</li>
-							@else
-								@if(session('statut') == 'admin')
-									<li>
-										{!! link_to_route('admin', trans('front/site.administration')) !!}
+			</div> 
+		</div>
+        <!--end preloader-->
+		<div class="site">
+			<header class="noo-header" id="noo-header">
+				<div class="navbar-wrapper">
+					<div class="navbar navbar-default navbar-static-top">
+						<div class="container">
+							<div class="navbar-header">
+								<h1 class="sr-only">Home</h1>
+								<a class="navbar-toggle collapsed" data-toggle="collapse" data-target=".noo-navbar-collapse">
+									<span class="sr-only">Navigation</span>
+									<i class="fa fa-bars"></i>
+								</a>
+								<a href="#" class="mobile-minicart-icon">
+									<i class="fa fa-shopping-cart"></i><span>0</span>
+								</a>
+								<a href="{!!route('home')!!}" class="navbar-brand">
+									<img class="noo-logo-img noo-logo-normal" src="{!!URL::to('/')!!}/images/logo1.png" alt="">
+									<img class="noo-logo-img noo-logo-floating" src="{!!URL::to('/')!!}/images/logo1.png" alt="">
+								</a>
+							</div>  
+							<nav class="collapse navbar-collapse noo-navbar-collapse">
+								
+                                                                <ul class="navbar-nav sf-menu">
+									<li class="menu-item menu-item-has-children  @if(Route::currentRouteName()== 'home' ) current-menu-item @endif">
+										<a href="{!!route('home')!!}">Home</a>
+										
 									</li>
-								@elseif(session('statut') == 'redac') 
-									<li>
-										{!! link_to('blog', trans('front/site.redaction')) !!}
+									<li class="menu-item-has-children @if(Route::currentRouteName()== 'audio.index' ) current-menu-item @endif">
+										<a href="{!!route('audio.index')!!}">Audio</a>
+										
 									</li>
-								@endif
-								<li>
-									{!! link_to('auth/logout', trans('front/site.logout')) !!}
-								</li>
-							@endif
-						@endif
-						<li class="imgflag">
-							<a href="{!! url('language') !!}"><img width="32" height="32" alt="en" src="{!! asset('img/' . (session('locale') == 'fr' ? 'english' : 'french') . '-flag.png') !!}"></a>
-						</li>
-					</ul>
+                                                                        <li class="menu-item-has-children @if(Route::currentRouteName()== 'video.index' ) current-menu-item @endif">
+										<a href="{!!route('video.index')!!}">video</a>
+										
+									</li>
+                                                                        <li class="menu-item-has-children @if(Route::currentRouteName()== 'gallery.index' ) current-menu-item @endif">
+										<a href="{!!route('gallery.index')!!}">Gallery</a>
+										
+									</li>
+                                                                        <li class="menu-item-has-children @if(Route::currentRouteName()== 'about' ) current-menu-item @endif">
+										<a href="{!!route('about')!!}">About</a>
+										
+									</li>
+                                                                        
+									
+									
+									<li class="menu-item-has-children @if(Route::currentRouteName()== 'contact.create' ) current-menu-item @endif">
+                                                                            <a href="{!!route('contact.create')!!}">Contact</a></li>
+								
+								</ul>
+
+
+							</nav>  
+						</div>  
+					</div>  
+				</div>
+			</header>
+			<div class="container-wrap">
+                            @yield('main')
+			</div> 
+			<footer class="colophon site-info">
+				<div class="colophon wigetized">
+					<div class="background-footer"></div>
+					<div class="container">
+						 
+						<div class="noo-footer-bottom">
+							<div class="widget widget_noo_infomation">
+								<ul class="noo-infomation">
+									<li>
+										<span class="fa fa-map-marker infomation-left"></span>
+                                                                                <address>Lahore, Punjab, Pakistan </address>
+									</li>
+									<li class="info-phone">
+										<span class="fa fa-phone infomation-left"></span>
+										<span> Pakistan: +92 322 6900450 
+                                                                                      <br> UK:  +44 7885 823643
+                                                                                </span>
+									</li>
+									<li class="info-mail">
+										<span class="fa fa-envelope-o infomation-left"></span>
+										<span><a href="mailto:waleedanjumcheema@gmail.com">waleedanjumcheema@gmail.com</a></span>
+									</li>
+								</ul>
+							</div>
+							<div class="widget widget_noo_social">
+								<div class="noo_social">
+									<div class="social-all">
+										<span class="footer-social">
+											<span class="social-name">
+												Follow on facebook
+											</span>
+											<a href="https://www.facebook.com/waleedcheema.official" class="fa fa-facebook"></a>
+										</span>
+										<span class="footer-social">
+											<span class="social-name">
+												Follow on google-plus
+											</span>
+											<a href="#" class="fa fa-google-plus"></a>
+										</span>
+										<span class="footer-social">
+											<span class="social-name">
+												Follow on twitter
+											</span>
+											<a href="#" class="fa fa-twitter"></a>
+										</span>
+										<span class="footer-social">
+											<span class="social-name">
+												Follow on youtube
+											</span>
+											<a href="#" class="fa fa-youtube"></a>
+										</span>
+										<span class="footer-social">
+											<span class="social-name">
+												Follow on skype
+											</span>
+											<a href="" class="fa fa-skype"></a>
+										</span>
+										<span class="footer-social">
+											<span class="social-name">
+												Follow on linkedin
+											</span>
+											<a href="#" class="fa fa-linkedin"></a>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>  
+				</div>  
+			</footer>  
+		</div>  
+		<div class="footer-player">
+			<div class="album-playlist">
+				<ul>
+					<li class="album-playlist-title">
+						<span class="playlist-play">
+							Play
+						</span>
+						<span class="playlist-release">
+							Play
+							<small>(Label)</small>
+						</span>
+						<span class="playlist-tract">
+							Track title
+							<small>(Track author)</small>
+						</span>
+						<span class="playlist-page">
+							Page
+						</span>
+						<span class="playlist-delete">
+							Delete
+						</span>
+					</li>
+					
+                                         @yield('playlist')   
+                                        
+                                     
+					
+				</ul>
+			</div>
+                    
+                    
+			<div class="album-player">
+				<div class="album-player-embed">
+					<span class="contro-album-player contro-down-player"><i class="fa fa-angle-down"></i></span>
+					<span class="contro-album-player contro-up-player"><i class="fa fa-angle-up"></i></span>
+					<audio class="album-audio-embed">
+						<source src="/audio/janyq/mp3.mp3" type="audio/mpeg"/>
+					</audio>
 				</div>
 			</div>
-		</nav>
-		@yield('header')	
-	</header>
+		</div>
 
-	<main role="main" class="container">
-		@if(session()->has('ok'))
-			@include('partials/error', ['type' => 'success', 'message' => session('ok')])
-		@endif	
-		@if(isset($info))
-			@include('partials/error', ['type' => 'info', 'message' => $info])
-		@endif
-		@yield('main')
-	</main>
+		<script type='text/javascript' src='http://code.jquery.com/jquery-1.11.3.min.js'></script>
+		<script type='text/javascript' src='{!!URL::to('/')!!}/js/jquery-migrate.min.js'></script>
+		<script type='text/javascript' src='{!!URL::to('/')!!}/js/jquery.themepunch.tools.min.js'></script>
+		<script type='text/javascript' src='{!!URL::to('/')!!}/js/jquery.themepunch.revolution.min.js'></script>
+		<script type='text/javascript' src='{!!URL::to('/')!!}/js/modernizr-2.7.1.min.js'></script>
+		<script type='text/javascript' src='{!!URL::to('/')!!}/js/imagesloaded.pkgd.min.js'></script>
+		<script type='text/javascript' src='{!!URL::to('/')!!}/js/jquery.carouFredSel-6.2.1.js'></script>
+		<script type='text/javascript' src='{!!URL::to('/')!!}/js/jquery.touchSwipe.min.js'></script>
+		<script type='text/javascript' src='{!!URL::to('/')!!}/js/bootstrap.min.js'></script>
+		<script type='text/javascript' src='{!!URL::to('/')!!}/js/hoverIntent-r7.min.js'></script>
+		<script type='text/javascript' src='{!!URL::to('/')!!}/js/superfish-1.7.4.min.js'></script>
+		<script type='text/javascript' src='{!!URL::to('/')!!}/js/main.js'></script>
+		<script type='text/javascript' src='{!!URL::to('/')!!}/js/mediaelement-and-player.js'></script>
+		<script type='text/javascript' src='{!!URL::to('/')!!}/js/player.js'></script>
+		<script type='text/javascript' src='{!!URL::to('/')!!}/js/jquery.plugin.min.js'></script>
+		<script type='text/javascript' src='{!!URL::to('/')!!}/js/jquery.countdown.min.js'></script>
+		<script type='text/javascript' src='{!!URL::to('/')!!}/js/jquery.parallax.js'></script>
+		<script type='text/javascript' src='{!!URL::to('/')!!}/js/owl.carousel.min.js'></script>
 
-	<footer role="contentinfo">
-		 @yield('footer')
-		<p class="text-center"><small>Copyright &copy; Momo</small></p>
-	</footer>
-		
-	{!! HTML::script('//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js') !!}
-	<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-	{!! HTML::script('js/plugins.js') !!}
-	{!! HTML::script('js/main.js') !!}
+		<script type="text/javascript">
+            var $height_w   = jQuery(window).height();
+	        jQuery('.noo-countdown').css('height',$height_w+'px');
+	        jQuery(window).resize(function(){
+                var $height_w = jQuery(window).height();
+                jQuery('.noo-countdown').css('height',$height_w+'px');
+	        });
+            jQuery(function () {
+                jQuery('.full-background li:first-child').show();
+                var myVar = '';
+                clearInterval(myVar);
+                myVar = setInterval(function(){
+                    jQuery('.full-background li:first-child').fadeOut(1200).next('li').fadeIn(1200).end().appendTo('.full-background');
+                },3500);
+	            
+	                                
+	            austDay = new Date(2016, 1  -1,  8);
+                    
+	            jQuery('#defaultCountdown').countdown({until: austDay});
+	            jQuery('#year').text(austDay.getFullYear());
+            });
 
-	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-	<script>
-		(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-		function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-		e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-		e.src='//www.google-analytics.com/analytics.js';
-		r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-		ga('create','UA-XXXXX-X');ga('send','pageview');
-	</script>
+        </script>
+	</body>
 
-	@yield('scripts')
-
-  </body>
 </html>
